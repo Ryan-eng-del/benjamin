@@ -81,3 +81,7 @@
       "calt" 1;
   }
 }
+
+.effect-pressing {
+  @apply active:!scale-[0.985] active:!translate-y-[0.5px] transition-transform duration-75 ease-linear;
+}
