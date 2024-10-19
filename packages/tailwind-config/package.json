@@ -1,0 +1,17 @@
+{
+  "name": "@benjamin/tailwind-config",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": "./tailwind.config.ts"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "@benjamin/typescript-config": "workspace:^"
+  }
+}
