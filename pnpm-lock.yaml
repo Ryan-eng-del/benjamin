@@ -20,6 +20,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@benjamin/shadcn-tailwind-config':
+        specifier: workspace:^
+        version: link:../../packages/shadcn-tailwind-config
       '@benjamin/tailwind-config':
         specifier: workspace:^
         version: link:../../packages/tailwind-config
@@ -100,6 +103,15 @@ importers:
         specifier: ^5.3.3
         version: 5.6.2
 
+  packages/shadcn-tailwind-config:
+    dependencies:
+      '@benjamin/typescript-config':
+        specifier: workspace:^
+        version: link:../typescript-config
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
+
   packages/tailwind-config:
     dependencies:
       '@benjamin/typescript-config':
@@ -114,6 +126,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@benjamin/shadcn-tailwind-config':
+        specifier: workspace:^
+        version: link:../shadcn-tailwind-config
       '@benjamin/tailwind-config':
         specifier: workspace:^
         version: link:../tailwind-config
@@ -152,7 +167,7 @@ importers:
         specifier: ^8.56.5
         version: 8.56.12
       '@types/node':
-        specifier: ^20.11.24
+        specifier: ^20.16.5
         version: 20.16.5
       '@types/react':
         specifier: ^18.2.61

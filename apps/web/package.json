@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@benjamin/shadcn-tailwind-config": "workspace:^",
     "@benjamin/tailwind-config": "workspace:^",
     "@benjamin/ui": "workspace:*",
     "@radix-ui/react-icons": "^1.3.0",
