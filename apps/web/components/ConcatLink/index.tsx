@@ -39,7 +39,7 @@ export default function ConcatLink() {
         </a>
         <a target="_blank" href="mailto:cyan0908@163.com" rel="noreferrer">
           <Button
-            className="!w-full !text-gray-500 text-3 leading-14"
+            className="!w-full text-gray-700 text-3 leading-14"
             variant="outline"
           >
             <EnvelopeClosedIcon />

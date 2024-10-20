@@ -1,6 +1,7 @@
 import "@benjamin/ui/benjamin-ui-global.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Footer, ThemeProvider } from "~/components";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -23,13 +24,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="bg-gbg dark:bg-neutral-900 dark:text-white min-h-screen">
-          <main className="w-full min-h-main lg:w-content h-auto mx-auto pt-0 lg:pt-20 px-5 lg:px-10">
-            {children}
-          </main>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <div className="bg-gbg dark:bg-slate-900 dark:text-white min-h-screen">
+            <main className="w-full min-h-main lg:w-content h-auto mx-auto pt-0 lg:pt-20 px-5 lg:px-10">
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
