@@ -1,19 +1,13 @@
 "use client";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-import { useEffect } from "react";
 
 const themes = ["dark", "light"];
 const targetThemes = ["light", "dark"];
-const themeIcon = [<MoonIcon />, <SunIcon />];
+const themeIcon = [<SunIcon />, <MoonIcon />];
 
 export default function Footer() {
-  const { setTheme, theme, resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    console.log(theme, "theme");
-  }, []);
-
+  const { setTheme, theme } = useTheme();
   return (
     <>
       <div className="fixed bottom-8 left-8 text-gray-500 dark:text-gray-300">
@@ -21,10 +15,6 @@ export default function Footer() {
           aria-label="change theme"
           onClick={() => {
             if (theme) {
-              console.log(
-                targetThemes[themes.indexOf(theme)],
-                themes.indexOf(theme)
-              );
               setTheme(targetThemes[themes.indexOf(theme)]!);
             }
           }}
