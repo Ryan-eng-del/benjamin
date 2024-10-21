@@ -2,6 +2,7 @@
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
+
 const themes = ["dark", "light"];
 const targetThemes = ["light", "dark"];
 const themeIcon = [<MoonIcon />, <SunIcon />];

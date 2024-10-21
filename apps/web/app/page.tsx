@@ -9,7 +9,7 @@ const Hobbies = ["swimming", "working out", "reading"];
 export default function Home() {
   return (
     <>
-      <div className="lg:mt-15 mt-0 lg:pt-0 pt-20">
+      <div className="lg:pt-15 md:pt-10 pt-10">
         <div>
           <h1 className="flex items-center font-medium !leading-14 lg:text-1 text-black dark:text-white tracking-wide mb-0.5 whitespace-nowrap lg:text-3xl text-2xl">
             <span className="animate-waveHand hover:animate-waveHandAgain inline-block cursor-pointer mr-2.5">
