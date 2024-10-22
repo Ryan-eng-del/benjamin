@@ -1,8 +1,8 @@
 "use client";
 
-import { ConcatLink, Emphasis } from "~/components";
+import { ConcatLink, Emphasis, List } from "~/components";
 
-const LanguageTechnologies = ["Golang", "Python", "TypeScript/JavaScript"];
+const LanguageTechnologies = ["Golang", "Python", "TypeScript"];
 const FrameworkTechnologies = ["Next.js", "Go-Zero", "Kubernetes"];
 const Hobbies = ["swimming", "working out", "reading"];
 
@@ -22,14 +22,14 @@ export default function Home() {
             <p>
               <span>My name is Bo Wang</span>
               <Emphasis
-                name="Preferred First Name"
+                name="First Name"
                 className="-translate-y-0.5  !border-l-yellow-300  dark:!border-l-green-300 !border-l-4 dark:text-white dark:font-medium"
               >
                 <b>Benjamin</b>
               </Emphasis>
-              <span>, and I am currently working as a</span>
+              <span>, and I am currently working as</span>
               <Emphasis
-                name="Full Stack Software Engineer"
+                name="Full Stack Engineer"
                 className="!border-l-4 !border-l-blue-400 dark:text-white dark:!border-l-slate-50 dark:font-medium"
               ></Emphasis>{" "}
               at various technology startups base in ShenZhen, China 🇨🇳.
@@ -72,7 +72,9 @@ export default function Home() {
           </div>
         </div>
         <ConcatLink />
-        <div className="h-80"></div>
+        <div className="mt-7">
+          <List />
+        </div>
       </div>
     </>
   );

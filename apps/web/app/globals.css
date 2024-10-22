@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  @apply w-full;
+}
+
 @layer base {
   .dark {
     --background: 224 71% 4%;
