@@ -31,9 +31,9 @@ interface CardWithImgProps {
   item: any;
   sticky?: boolean;
 }
-export function CardWithImg({ item }: CardWithImgProps) {
+export default function CardWithImg({ item }: CardWithImgProps) {
   return (
-    <WobbleCard className="w-full bg-white dark:bg-slate-800/50  rounded-md border dark:shadow-[inset_0_1px_0_1px_rgba(148,163,184,0.1)] border-none dark:drop-shadow-lg cursor-grab shadow-md">
+    <WobbleCard className="w-full bg-white dark:bg-slate-800/50  rounded-md dark:shadow-[inset_0_1px_0_1px_rgba(148,163,184,0.1)] border-none dark:drop-shadow-lg cursor-grab shadow-md">
       <div className="p-5 lg:p-10 lg:grid lg:grid-cols-3 lg:gap-9">
         <Hover
           className="dark:opacity-90 relative  rounded-md shadow-sm hover:shadow-md h-img min-h-full w-full col-span-1 border border-gray-200 transition-all"
