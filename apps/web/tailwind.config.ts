@@ -15,7 +15,9 @@ export default {
       colors: {
         gbg: "#f6f7f8",
       },
-
+      height: {
+        img: "230px",
+      },
       width: {
         content: "680px",
         page: "720px",

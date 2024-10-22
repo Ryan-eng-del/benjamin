@@ -44,6 +44,7 @@ export function usePager(): Pager {
   };
 }
 
+//! todo 页标识问题
 export function useInfiniteQueryPost({
   setBroken,
   getPage,
@@ -51,10 +52,10 @@ export function useInfiniteQueryPost({
 }: Pager) {
   return useInfiniteQuery({
     queryKey: ["posts-infinite"],
-    queryFn: async () => {
+    queryFn: async (context) => {
       try {
         const postDatas = await client.get({
-          url: `https://blog.ouorz.com/wp-json/wp/v2/posts?sticky=0&per_page=10&categories_exclude=5,2,74,334,335&page=${getPage()}`,
+          url: `https://blog.ouorz.com/wp-json/wp/v2/posts?sticky=0&per_page=10&categories_exclude=5,2,74,334,335&page=${context.pageParam}`,
         });
         setPageSize(postDatas.length);
         return postDatas;
@@ -65,6 +66,8 @@ export function useInfiniteQueryPost({
       }
     },
     initialPageParam: INIT_PAGE,
-    getNextPageParam: () => getPage(),
+    getNextPageParam: () => {
+      return getPage();
+    },
   });
 }

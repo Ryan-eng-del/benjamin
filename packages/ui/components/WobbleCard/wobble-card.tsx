@@ -20,7 +20,7 @@ export const WobbleCard = ({
     const rect = event.currentTarget.getBoundingClientRect();
     const x = (clientX - (rect.left + rect.width / 2)) / 20;
     const y = (clientY - (rect.top + rect.height / 2)) / 20;
-    setMousePosition({ x, y });
+    // setMousePosition({ x, y });
   };
   return (
     <motion.section
@@ -42,7 +42,7 @@ export const WobbleCard = ({
         <motion.div
           style={{
             transform: isHovering
-              ? `translate3d(${-mousePosition.x}px, ${-mousePosition.y}px, 0) scale3d(1.03, 1.03, 1)`
+              ? `translate3d(${-mousePosition.x}px, ${-mousePosition.y}px, 0) scale3d(1.02, 1.02, 1)`
               : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
             transition: "transform 0.1s ease-out",
           }}

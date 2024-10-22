@@ -34,7 +34,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <div className="bg-gbg dark:bg-slate-900 dark:text-white min-h-screen">
-              <main className="w-full min-h-main lg:w-content h-auto mx-auto pt-0 lg:pt-20 px-5 lg:px-10 md:px-10 md:w-content md:pt-10">
+              <main className="w-full min-h-main lg:w-content h-auto mx-auto pt-0 lg:pt-20 px-8 lg:px-10 md:px-10 md:w-content md:pt-10">
                 {children}
               </main>
             </div>

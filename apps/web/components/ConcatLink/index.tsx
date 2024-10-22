@@ -5,6 +5,7 @@ import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default function ConcatLink() {
   return (
@@ -50,12 +51,14 @@ export default function ConcatLink() {
       </div>
 
       <div className="lg:col-start-4 col-start-3 col-end-6 lg:col-end-6">
-        <Button className="!w-full">
-          <ArrowRightIcon />
-          <span className="tracking-normal text-4 leading-14 lg:text-3">
-            More about me
-          </span>
-        </Button>
+        <Link href="/post/126">
+          <Button className="!w-full">
+            <ArrowRightIcon />
+            <span className="tracking-normal text-4 leading-14 lg:text-3">
+              More about me
+            </span>
+          </Button>
+        </Link>
       </div>
     </div>
   );

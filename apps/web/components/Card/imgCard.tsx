@@ -33,10 +33,10 @@ interface CardWithImgProps {
 }
 export default function CardWithImg({ item }: CardWithImgProps) {
   return (
-    <WobbleCard className="w-full bg-white dark:bg-slate-800/50  rounded-md dark:shadow-[inset_0_1px_0_1px_rgba(148,163,184,0.1)] border-none dark:drop-shadow-lg cursor-grab shadow-md">
-      <div className="p-5 lg:p-10 lg:grid lg:grid-cols-3 lg:gap-9">
+    <WobbleCard containerClassName="bg-white dark:bg-slate-800/50 dark:shadow-[inset_0_1px_0_1px_rgba(148,163,184,0.1)] border-none dark:drop-shadow-lg cursor-grab overflow-hidden shadow-sm hover:shadow-md">
+      <div className="p-8 sm:p-7 sm:grid sm:grid-cols-3 lg:gap-9 sm:gap-6 rounded-2xl">
         <Hover
-          className="dark:opacity-90 relative  rounded-md shadow-sm hover:shadow-md h-img min-h-full w-full col-span-1 border border-gray-200 transition-all"
+          className="dark:opacity-90 relative rounded-md shadow-sm hover:shadow-md h-img min-h-full sm:w-full sm:col-span-1 border border-gray-200 transition-all md:block"
           perspective={1000}
           max={37}
           scale={1.01}
@@ -51,25 +51,25 @@ export default function CardWithImg({ item }: CardWithImgProps) {
             loading="lazy"
           />
         </Hover>
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <div className="flex items-center">
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 mt-8 sm:mt-0">
               <Label>
-                <LayersIcon className="w-5 mr-2 h-5" />
+                <LayersIcon className="mr-2 w-5 h-5" />
                 {item.post_categories[0].name}
               </Label>
             </div>
           </div>
 
-          <div className="lg:mt-4 mt-6">
+          <div className="lg:mt-4 md:mt-4 mt-6">
             <div>
               <h1
-                className="font-medium text-2xl lg:text-listTitle text-gray-700 dark:text-white tracking-wider mb-5"
+                className="font-medium lg:text-2xl text-lg lg:text-listTitle text-gray-700 dark:text-white tracking-wider mb-5"
                 dangerouslySetInnerHTML={{ __html: item.post_title }}
               />
             </div>
             <p
-              className="text-gray-500 dark:text-gray-400 text-4 lg:text-3 tracking-wide leading-2 lg:leading-8 overflow-hidden text-ellipsis"
+              className="text-gray-500 dark:text-gray-400 text-base lg:text-3 tracking-wide leading-2 md:leading-6 lg:leading-8 text-ellipsis"
               dangerouslySetInnerHTML={{
                 __html: trimStr(item.post_excerpt.four, 150),
               }}

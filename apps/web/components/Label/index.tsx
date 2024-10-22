@@ -14,7 +14,7 @@ const Label = ({ children, ...props }: LabelProps) => {
   return (
     <label
       {...props}
-      className="cursor-pointer justify-center font-medium items-center flex w-auto lg:px-4 lg:py-1 px-2 py-1 bg-blue-100 dark:bg-blue-900 hover:bg-blue-200 dark:hover:bg-blue-800 text-center rounded-md text-4 lg:text-label tracking-wide text-blue-500 dark:text-blue-300 align-middle effect-pressing"
+      className="cursor-pointer justify-center font-medium items-center flex w-auto lg:px-4 lg:py-1 px-1 py-1 bg-blue-100 dark:bg-teal-400/10 hover:dark:bg-teal-300/20 hover:bg-blue-200  text-center rounded-md lg:text-lg text-base lg:text-label tracking-wide text-blue-500 dark:text-teal-300 align-middle effect-pressing"
     >
       <>{children}</>
     </label>
