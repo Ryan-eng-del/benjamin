@@ -1,2 +1,2 @@
-export let baseURL = "http://siat.dthink.net:81/api";
+export let baseURL = "http://localhost:8082/v1";
 export const TIME_OUT = 0;

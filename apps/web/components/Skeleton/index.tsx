@@ -1,9 +1,20 @@
+"use client";
+
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import ContentLoader from "react-content-loader";
 
 export default function CardSkeleton() {
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <div className="w-full p-10 shadow-sm bg-white dark:bg-slate-800/50 dark:shadow-[inset_0_1px_0_1px_rgba(148,163,184,0.1)] border-none dark:drop-shadow-lg rounded-md mb-6 text-center">
       <ContentLoader

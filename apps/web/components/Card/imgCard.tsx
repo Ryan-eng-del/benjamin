@@ -3,6 +3,7 @@
 import { Hover, WobbleCard } from "@benjamin/ui";
 import { LayersIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
+import { baseURL } from "~/server/request/config";
 import blurDataURL from "~/util/blurDataURL";
 import Label from "../Label";
 
@@ -43,11 +44,11 @@ export default function CardWithImg({ item }: CardWithImgProps) {
         >
           <Image
             fill
-            src={item.post_img.url}
+            src={`${baseURL}/static/${item.blog_pic}`}
             placeholder="blur"
             blurDataURL={blurDataURL}
             className="rounded-md object-cover"
-            alt={`featured-image-${item.post_title}`}
+            alt={`featured-image-${item.title}`}
             loading="lazy"
           />
         </Hover>
@@ -56,7 +57,7 @@ export default function CardWithImg({ item }: CardWithImgProps) {
             <div className="flex space-x-2 mt-8 sm:mt-0">
               <Label>
                 <LayersIcon className="mr-2 w-5 h-5" />
-                {item.post_categories[0].name}
+                {item.category?.title}
               </Label>
             </div>
           </div>
@@ -65,13 +66,13 @@ export default function CardWithImg({ item }: CardWithImgProps) {
             <div>
               <h1
                 className="font-medium lg:text-2xl text-lg lg:text-listTitle text-gray-700 dark:text-white tracking-wider mb-5"
-                dangerouslySetInnerHTML={{ __html: item.post_title }}
+                dangerouslySetInnerHTML={{ __html: item.title }}
               />
             </div>
             <p
               className="text-gray-500 dark:text-gray-400 text-base lg:text-3 tracking-wide leading-2 md:leading-6 lg:leading-8 text-ellipsis"
               dangerouslySetInnerHTML={{
-                __html: trimStr(item.post_excerpt.four, 150),
+                __html: trimStr(item.content, 150),
               }}
             />
           </div>

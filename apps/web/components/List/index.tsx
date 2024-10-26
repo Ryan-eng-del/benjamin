@@ -3,19 +3,19 @@ import { useEffect, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { CardEmpty, CardSkeleton, CardWithImg } from "~/components";
 import { useInfiniteQueryPost } from "~/server";
-import { usePager } from "~/server/post";
 
 export default function List() {
-  const nextInfinitePager = usePager();
-  const { data, fetchNextPage, isFetching, isError } =
-    useInfiniteQueryPost(nextInfinitePager);
+  const { data, fetchNextPage, isFetching, isError } = useInfiniteQueryPost();
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     if (isError) setHasMore(false);
     if (!data) return;
-
-    if (data && nextInfinitePager.getLastPageSize() < 10) {
+    if (
+      data &&
+      data.pages.length &&
+      data.pages[data.pages.length - 1].items.length < 10
+    ) {
       setHasMore(false);
     }
   }, [data, isError]);
@@ -25,9 +25,10 @@ export default function List() {
 
     return data.pages.reduce((pre, cur) => {
       if (!cur) return pre;
-      return pre + cur.length;
+      return pre + cur.items.length;
     }, 0);
   }, [data]);
+
   return (
     <InfiniteScroll
       dataLength={totalDataLen}
@@ -35,19 +36,18 @@ export default function List() {
         if (isFetching) {
           return;
         }
-        nextInfinitePager.nextPage();
         fetchNextPage();
       }}
       hasMore={hasMore}
       loader={<CardSkeleton />}
       endMessage={<CardEmpty />}
-      scrollThreshold="100px"
+      scrollThreshold="20px"
     >
       {data?.pages?.map((page) => {
-        return page?.map((item: any) => {
+        return page.items?.map((item: any) => {
           return (
-            <div className="mb-6">
-              <CardWithImg item={item} key={item.id}></CardWithImg>
+            <div className="mb-6" key={item.id}>
+              <CardWithImg item={item}></CardWithImg>
             </div>
           );
         });

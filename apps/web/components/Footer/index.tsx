@@ -1,13 +1,23 @@
 "use client";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const themes = ["dark", "light"];
 const targetThemes = ["light", "dark"];
-const themeIcon = [<SunIcon />, <MoonIcon />];
 
 export default function Footer() {
+  const themeIcon = [<SunIcon />, <MoonIcon />];
+  const [mounted, setMounted] = useState(false);
   const { setTheme, theme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <>
       <div className="fixed bottom-8 left-8 text-gray-500 dark:text-gray-300">
