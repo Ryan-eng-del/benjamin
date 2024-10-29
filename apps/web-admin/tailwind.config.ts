@@ -1,3 +1,4 @@
+import sharedConfig from "@benjamin/shadcn-tailwind-config";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -20,5 +21,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  presets: [sharedConfig],
 };
 export default config;

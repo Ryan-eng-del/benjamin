@@ -16,4 +16,7 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-} from "./Dialog/dialog"
+} from "./Dialog/dialog";
+
+export { Input } from "./Input/input";
+export { Label } from "./Label/label";

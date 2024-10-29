@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useRef, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
+import { PublishDialog } from "..";
 
 interface EditorProps {
   draftId?: string;
@@ -127,26 +128,22 @@ export default function Editor({ draftId }: EditorProps) {
             </Link>
           </Button>
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground border-gray-70 border p-2 rounded-md shadow-md">
             {" "}
             <span className="bg-green-500 rounded-full w-2 h-2 inline-block mr-2"></span>
             Draft
           </p>
 
-          <p className="text-sm text-gray-700 bg-gray-100 p-2 rounded-md">
+          <p className="text-sm text-gray-700 bg-gray-100 p-2 rounded-lg shadow-sm">
             Input{" "}
-            <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
+            <kbd className="rounded-md border bg-white px-1 text-xs uppercase">
               /
             </kbd>{" "}
             to open the command menu.
           </p>
         </div>
         <div>
-          <Button onClick={handleSave} variant="outline">
-            {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            <span>Publish</span>
-          </Button>
-
+          <PublishDialog />
           <Button onClick={handleSave} className="ml-3">
             {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             <span>Save</span>
