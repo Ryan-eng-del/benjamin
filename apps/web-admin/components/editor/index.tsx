@@ -13,7 +13,6 @@ interface EditorProps {
   content: OutputData | undefined;
 }
 export default function Editor({ draftId, content }: EditorProps) {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const { updateTitle, title } = useEditorStore((state) => state);
   const ref = useRef<EditorJS>();
@@ -51,21 +50,12 @@ export default function Editor({ draftId, content }: EditorProps) {
   }, [content]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMounted(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isMounted) {
-      initializeEditor();
-
-      return () => {
-        ref.current?.destroy();
-        ref.current = undefined;
-      };
-    }
-  }, [isMounted, initializeEditor]);
+    initializeEditor();
+    return () => {
+      ref.current?.destroy();
+      ref.current = undefined;
+    };
+  }, [initializeEditor]);
 
   // 保存草稿
   const handleSave = async () => {

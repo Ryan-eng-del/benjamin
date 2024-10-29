@@ -7,10 +7,13 @@
       }
     ],
     "baseUrl": ".",
-
     "paths": {
-      "~/*": ["./*"],
-      "~/server/*": ["./server/*"]
+      "~/*": [
+        "./*"
+      ],
+      "~/server/*": [
+        "./server/*"
+      ]
     }
   },
   "include": [
@@ -19,7 +22,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "postcss.config.js"
+    "postcss.config.js",
+    "../web-admin/providers/StoreBuilder.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
