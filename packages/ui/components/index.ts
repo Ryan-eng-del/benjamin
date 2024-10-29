@@ -20,3 +20,14 @@ export {
 
 export { Input } from "./Input/input";
 export { Label } from "./Label/label";
+
+export {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField,
+} from "./Form/form";
