@@ -1,7 +1,8 @@
-import { EditorStoreProvider } from "@/providers/editorProvider";
+import { EditorStoreProvider, ReactQueryProvider } from "@/providers";
 import "@benjamin/ui/benjamin-ui-global.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,7 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <EditorStoreProvider>{children}</EditorStoreProvider>
+        <ReactQueryProvider>
+          <EditorStoreProvider>{children}</EditorStoreProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
