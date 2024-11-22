@@ -31,3 +31,5 @@ export {
   FormMessage,
   useFormField,
 } from "./Form/form";
+
+export { Switch } from "./Swich/switch";
